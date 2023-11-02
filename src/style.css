@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  background: hsl(222, 26%, 31%);
+  overflow: hidden;
+}
+.calculator {
+  max-width: 400px;
+  font-size: 32px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.theme {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.result {
+  height: 100px;
+  background: hsl(224, 36%, 15%);
+  color: #fff;
+  text-align: end;
+  font-size: 38px;
+  padding: 30px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+.board {
+  background: hsl(223, 31%, 20%);
+  border-radius: 8px;
+  margin: 20px 0;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 15px;
+}
+.board button {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: hsl(221, 14%, 31%);
+  background: hsl(30, 25%, 89%);
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 3px 0px hsl(28, 16%, 65%);
+}
+.reset,
+.result-btn {
+  grid-column: span 2;
+}
+#result-btn {
+  background: hsl(6, 63%, 50%);
+  color: #fff;
+  box-shadow: 0 2px 3px 0px hsl(6, 70%, 34%);
+}
+#reset,
+#delete {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #fff;
+  background: hsl(225, 21%, 49%);
+  box-shadow: 0 2px 3px 0px hsl(224, 28%, 35%);
+}
