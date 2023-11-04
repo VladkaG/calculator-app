@@ -4,10 +4,53 @@
 body {
   font-family: 'League Spartan', sans-serif;
   font-weight: 700;
-  color: #fff;
-  background: hsl(222, 26%, 31%);
+  color: var(--font-color);
+  background: var(--color-primary);
   overflow: hidden;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.theme-light {
+  --color-primary: hsl(0, 0%, 90%);
+  --color-display: hsl(0, 0%, 93%);
+  --color-board: hsl(0, 5%, 81%);
+  --color-key-background: hsl(45, 7%, 89%);
+  --color-key-shadow: hsl(35, 11%, 61%);
+  --color-key-options-background: hsl(185, 42%, 37%);
+  --color-key-options-shadow: hsl(185, 58%, 25%);
+  --color-key-result-background: hsl(25, 98%, 40%);
+  --color-key-result-shadow: hsl(25, 99%, 27%);
+  --font-color: hsl(60, 10%, 19%);
+  --key-font-color: hsl(60, 10%, 19%);
+}
+.theme-dark {
+  --color-primary: hsl(222, 26%, 31%);
+  --color-display: hsl(224, 36%, 15%);
+  --color-board: hsl(223, 31%, 20%);
+  --color-key-background: hsl(30, 25%, 89%);
+  --color-key-shadow: hsl(28, 16%, 65%);
+  --color-key-options-background: hsl(225, 21%, 49%);
+  --color-key-options-shadow: hsl(224, 28%, 35%);
+  --color-key-result-background: hsl(6, 63%, 50%);
+  --color-key-result-shadow: hsl(6, 70%, 34%);
+  --font-color: #ffffff;
+  --key-font-color: hsl(221, 14%, 31%);
+}
+
 .calculator {
   max-width: 400px;
   font-size: 32px;
@@ -17,19 +60,58 @@ body {
   justify-content: center;
   height: 100vh;
 }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 25px;
 }
-.theme {
-  font-size: 13px;
-  text-transform: uppercase;
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-board);
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  transition: 0.4s;
+  background: var(--color-key-result-background);
+}
+input:checked + .slider {
+  background: var(--color-board);
+}
+input:checked + .slider:before {
+  transform: translateX(24px);
+  background: var(--color-key-result-background);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
 .display {
   height: 100px;
-  background: hsl(224, 36%, 15%);
-  color: #fff;
+  background: var(--color-display);
+  color: var(--font-color);
   text-align: end;
   font-size: 38px;
   padding: 30px;
@@ -44,11 +126,11 @@ header {
 }
 .display .previous-operand {
   font-size: 28px;
-  color: #c5c5c5;
+  color: #969696;
   padding: 5px;
 }
 .board {
-  background: hsl(223, 31%, 20%);
+  background: var(--color-board);
   border-radius: 8px;
   margin: 20px 0;
   padding: 25px;
@@ -61,34 +143,31 @@ header {
   font-family: 'League Spartan', sans-serif;
   font-size: 32px;
   font-weight: 700;
-  color: hsl(221, 14%, 31%);
-  background: hsl(30, 25%, 89%);
+  color: var(--key-font-color);
+  background: var(--color-key-background);
   padding: 10px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 3px 0px hsl(28, 16%, 65%);
+  box-shadow: 0 2px 3px 0px var(--color-key-shadow);
 }
 .reset,
 .result-btn {
   grid-column: span 2;
 }
 #result-btn {
-  background: hsl(6, 63%, 50%);
+  background: var(--color-key-result-background);
   color: #fff;
-  box-shadow: 0 2px 3px 0px hsl(6, 70%, 34%);
+  box-shadow: 0 2px 3px 0px var(--color-key-result-shadow);
 }
 #reset,
 #delete {
   font-size: 24px;
   text-transform: uppercase;
   color: #fff;
-  background: hsl(225, 21%, 49%);
-  box-shadow: 0 2px 3px 0px hsl(224, 28%, 35%);
+  background: var(--color-key-options-background);
+  box-shadow: 0 2px 3px 0px var(--color-key-options-shadow);
 }
-
 .is-pressed {
   opacity: 0.8;
 }
-
-

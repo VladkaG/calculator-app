@@ -16,7 +16,12 @@
     <div class="calculator">
       <header>
         <div class="calc">calc</div>
-        <div class="theme"></div>
+        <div class="theme">
+          <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider" />
+            <span class="slider round"></span>
+          </label>
+        </div>
       </header>
       <div class="display">
         <div data-previous-operand class="previous-operand"></div>
@@ -26,7 +31,7 @@
         <button data-number class="numbers">7</button>
         <button data-number class="numbers">8</button>
         <button data-number class="numbers">9</button>
-        <button data-delete class="operation">del</button>
+        <button data-delete class="operation" id="delete">del</button>
         <button data-number class="numbers">4</button>
         <button data-number class="numbers">5</button>
         <button data-number class="numbers">6</button>
@@ -42,6 +47,12 @@
         <button data-all-clear class="reset" id="reset">reset</button>
         <button data-equals class="result-btn" id="result-btn">=</button>
       </div>
+      <footer>
+        ❤ created by
+        <a href="https://github.com/VladkaG/calculator-app"
+          >Vladyslava Hryshyna</a
+        >
+      </footer>
     </div>
     <script src="index.js"></script>
   </body>
